@@ -14,6 +14,7 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.20")
     implementation("com.sun.mail:javax.mail:1.6.2")
     testImplementation(kotlin("test"))
 }
