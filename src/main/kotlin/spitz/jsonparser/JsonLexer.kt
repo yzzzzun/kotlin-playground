@@ -6,22 +6,22 @@ class JsonLexer(
     val last = json.lastIndex
     var cursor = 0
         private set
-    val curr get() = json[cursor]
+    inline val curr get() = json[cursor]
     fun next() {
         if (cursor < last) ++cursor
     }
 
-    fun skipWhite() {
+    inline fun skipWhite() {
         while ("\t\n\r".indexOf(curr) != -1 && cursor < last) next()
     }
 
-    fun isOpenObject(): Boolean = '{' == curr
-    fun isCloseObject(): Boolean = '}' == curr
-    fun isOpenArray(): Boolean = '[' == curr
-    fun isCloseArray(): Boolean = ']' == curr
-    fun isComma() = curr == ','
+    inline fun isOpenObject(): Boolean = '{' == curr
+    inline fun isCloseObject(): Boolean = '}' == curr
+    inline fun isOpenArray(): Boolean = '[' == curr
+    inline fun isCloseArray(): Boolean = ']' == curr
+    inline fun isComma() = curr == ','
 
-    fun key(): String? {
+    inline fun key(): String? {
         val result = string() ?: return null
         skipWhite()
         if (curr != ':') return null
@@ -30,7 +30,7 @@ class JsonLexer(
         return result
     }
 
-    fun string(): String? {
+    inline fun string(): String? {
         if (curr != '"') return null
         next()
         val start = cursor
@@ -44,16 +44,16 @@ class JsonLexer(
         return result
     }
 
-    fun number(): String? {
+    inline fun number(): String? {
         val start = cursor
         while ("-.012345689".indexOf(curr) != -1) next()
         return if (start == cursor) null else json.substring(start, cursor)
     }
 
-    fun int() = number()?.toInt()
-    fun long() = number()?.toLong()
-    fun double() = number()?.toDouble()
-    fun float() = number()?.toFloat()
+    inline fun int() = number()?.toInt()
+    inline fun long() = number()?.toLong()
+    inline fun double() = number()?.toDouble()
+    inline fun float() = number()?.toFloat()
     fun boolean(): Boolean? {
         return when {
             json.substring(cursor, cursor + 4) == "true" -> {
@@ -67,6 +67,4 @@ class JsonLexer(
             else -> null
         }
     }
-
-
 }

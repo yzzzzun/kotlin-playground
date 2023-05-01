@@ -38,7 +38,7 @@ fun <T : Any> parseObject(lexer: JsonLexer, target: T): T? {
     return target
 }
 
-fun jsonValue(lexer: JsonLexer, type: KType): Any? {
+inline fun jsonValue(lexer: JsonLexer, type: KType): Any? {
     return when (val klass = type.classifier as? KClass<*> ?: return null) {
         String::class -> lexer.string()
         Int::class -> lexer.int()
