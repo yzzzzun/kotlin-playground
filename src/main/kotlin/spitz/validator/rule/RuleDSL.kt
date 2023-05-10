@@ -1,7 +1,5 @@
 package spitz.validator.rule
 
-import spitz.validator.RuleResult
-
 class RuleDSL(block: RuleDSL.() -> Unit) {
 
     private val cases = mutableSetOf<AddRules>()

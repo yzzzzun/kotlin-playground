@@ -1,4 +1,4 @@
-package spitz.validator
+package spitz.validator.rule
 
 sealed interface RuleResult {
     companion object {

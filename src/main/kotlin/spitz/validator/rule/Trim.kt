@@ -1,7 +1,5 @@
 package spitz.validator.rule
 
-import spitz.validator.RuleResult
-
 class Trim(private val msg: String?) : Rule {
     override fun check(target: RuleResult): RuleResult {
         return if (

@@ -1,7 +1,5 @@
 package spitz.validator.rule
 
-import spitz.validator.RuleResult
-
 
 // 인터페이스 델리게이션
 // 인터페이스 선언시 by를 붙여 인스턴스를 넘기면

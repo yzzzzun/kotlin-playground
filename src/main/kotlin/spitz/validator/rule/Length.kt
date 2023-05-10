@@ -1,7 +1,5 @@
 package spitz.validator.rule
 
-import spitz.validator.RuleResult
-
 class Length(
     private val length: Int,
     private val msg: String?,
