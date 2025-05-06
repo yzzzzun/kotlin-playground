@@ -12,6 +12,8 @@ repositories {
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.23")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation(kotlin("test"))
+    implementation(kotlin("test-junit"))
     testImplementation(kotlin("test"))
 }
 
